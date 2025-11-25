@@ -1,5 +1,13 @@
 # [Insert Workflow Name Here]
 
+> [!NOTE]
+> This is an opinionated guide to how to publish a workflow.
+>
+> Further guidance:
+> * [SciLifeLab - Sharing code and workflows](https://data-guidelines.scilifelab.se/topics/sharing-code-workflows/)
+> * [Ten simple rules for writing and sharing computational notebooks](https://doi.org/10.1371/journal.pcbi.1007007)
+> * [The Turing Way - A guide to reproducible, ethical and collaborative data science](https://book.the-turing-way.org/)
+
 ## A pipeline for [State Main Purpose Here]
 
 Extra: Include badges to indicate build status, license, and version if applicable.
@@ -24,7 +32,7 @@ Let the user know how to get started with the workflow.
 ### Prerequisites
 
 The workflow requires the following software:
-* **[Nextflow/Snakemake]** ($\ge$ [Specify Minimum Version])
+* **[Pixi](https://pixi.sh/latest/)** Creates the environment for running the workflow.
 * **Git**
 * A container runtime: **Docker** (for local testing) or **Singularity/Apptainer** (recommended for HPC).
 
@@ -36,6 +44,8 @@ Supply a tiny dataset for testing purposes, along with example commands to run t
 
 **Nextflow Example:**
 ```bash
+# Open a Pixi shell to create an environment for running the workflow.
+pixi shell
 # Runs a small, defined test case using pre-configured containers.
 nextflow run main.nf -profile test,docker
 ```

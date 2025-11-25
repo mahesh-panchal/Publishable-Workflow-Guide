@@ -1,0 +1,11 @@
+# Include a .gitignore file to help keep your repository clean.
+
+# Nextflow
+.nextflow*
+work/
+results/
+.lineage/
+
+# Pixi environments
+.pixi/*
+!.pixi/config.toml

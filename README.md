@@ -1,7 +1,9 @@
 # [Insert Workflow Name Here]
 
+If you use an acronym for your workflow, define it here in a short sentence.
+
 > [!NOTE]
-> This is an opinionated guide to how to publish a workflow.
+> This is a guide on how to publish a workflow.
 >
 > Further guidance:
 > * [SciLifeLab - Sharing code and workflows](https://data-guidelines.scilifelab.se/topics/sharing-code-workflows/)
@@ -15,6 +17,7 @@ Extra: Include badges to indicate build status, license, and version if applicab
 ## Overview
 
 Provide an overview of the workflow's purpose and main features.
+
 This workflow provides a scalable and portable workflow for **[Briefly state the main function, e.g., somatic variant calling from paired tumour-normal whole-exome sequencing data]**. It is designed to run efficiently on High-Performance Computing (HPC) and cloud infrastructures, adhering to current best practices for reproducibility.
 
 The pipeline executes the following primary modules:
@@ -31,12 +34,16 @@ Let the user know how to get started with the workflow.
 
 ### Prerequisites
 
+Define the software and hardware requirements needed to run the workflow.
+
 The workflow requires the following software:
-* **[Pixi](https://pixi.sh/latest/)** Creates the environment for running the workflow.
-* **Git**
+* **[Pixi](https://pixi.sh/latest/)**: Creates the environment for running the workflow.
+* **Git**: Version control
 * A container runtime: **Docker** (for local testing) or **Singularity/Apptainer** (recommended for HPC).
 
 Include expected resource usage on a typical dataset if possible, such as memory, CPU, runtime, and disk usage.
+
+This workflow can run on standard HPC nodes with at least 16 GB of RAM and 4 CPU cores. Typical runtime for a whole-exome sequencing sample pair is approximately 6-8 hours, depending on the dataset size and computational resources allocated.
 
 ### How to run/install
 

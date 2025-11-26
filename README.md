@@ -12,7 +12,7 @@ If you use an acronym for your workflow, define it here in a short sentence.
 
 ## A pipeline for [State Main Purpose Here]
 
-Extra: Include badges to indicate build status, license, and version if applicable.
+Extra: Include [badges](https://github.com/badges/shields) to indicate build status, license, and version if applicable.
 
 ## Overview
 

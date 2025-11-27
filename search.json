@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "troubleshooting.html",
+    "href": "troubleshooting.html",
+    "title": "Troubleshooting",
+    "section": "",
+    "text": "Describe issues a user may encounter and how to solve them.\nInclude an FAQ if certain questions arise frequently. A table of contents can help navigate a large set of questions while still keeping contents searchable."
+  },
+  {
+    "objectID": "troubleshooting.html#general",
+    "href": "troubleshooting.html#general",
+    "title": "Troubleshooting",
+    "section": "General",
+    "text": "General\n\nWhat can I use this workflow for?\nThis workflow can be used for …"
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Let the user know how to get started with the workflow. This should mirror the section in your README, or the README should point them here.\n\nPrerequisites\nDefine the software and hardware requirements needed to run the workflow.\nThe workflow requires the following software:\n\nPixi: Creates the environment for running the workflow.\nGit: Version control\nA container runtime: Docker (for local testing) or Singularity/Apptainer (recommended for HPC).\n\nInclude expected resource usage on a typical dataset if possible, such as memory, CPU, runtime, and disk usage.\nThis workflow can run on standard HPC nodes with at least 16 GB of RAM and 4 CPU cores. Typical runtime for a whole-exome sequencing sample pair is approximately 6-8 hours, depending on the dataset size and computational resources allocated.\n\n\nHow to run/install\nSupply a tiny dataset for testing purposes, along with example commands to run the workflow.\nNextflow Example:\n# Open a Pixi shell to create an environment for running the workflow.\npixi shell\n# Runs a small, defined test case using pre-configured containers.\nnextflow run main.nf -profile test,docker\nSnakemake Example:\n# Runs with a minimal config file, leveraging Conda environments.\nsnakemake --use-conda -j 4 --configfile config/test_config.yaml"
+  },
+  {
+    "objectID": "reference.html",
+    "href": "reference.html",
+    "title": "Reference",
+    "section": "",
+    "text": "This page acts as a comprehensive reference on how to use your workflow. It describes the inputs to your workflow and how to control it’s behaviour. Explain in detail what parameters do and affect. Explain anything custom to your workflow that won’t be found elsewhere, or is non-standard.\n\n\n\n\n\n\n\n\n\nParameter\nDescription\nData Type\nDefault Value\n\n\n\n\n--input\nPath to the input samplesheet file.\nfile\nsamples.csv\n\n\n--reference\nPath to the indexed reference genome FASTA file.\nfile\nRequired\n\n\n--outdir\nDirectory for output results.\nstring\nresults/\n\n\n\nConsider if a cheat-sheet would be useful to users too."
+  },
+  {
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Give an overview of what your pipeline does.\nMermaid flowchart diagrams are an excellent way to communicate what your workflow does.\n\n\n\n\n\nflowchart LR\n    qc[Quality Control] ==&gt; processing[Data processing]\n    processing ==&gt; analysis[Analysis]\n    analysis ==&gt; reports[Reporting]\n\n\n\n\n\n\nIf your workflow can be used in multiple ways, Metro maps, such as those used across nf-core are an effective way to communicate those paths."
+  },
+  {
+    "objectID": "outputs.html",
+    "href": "outputs.html",
+    "title": "Workflow Outputs",
+    "section": "",
+    "text": "Describe where to find the results, which files are important, and how to interpret them. If necessary, include case studies as subsections, or subpages."
+  },
+  {
+    "objectID": "outputs.html#results",
+    "href": "outputs.html#results",
+    "title": "Workflow Outputs",
+    "section": "Results",
+    "text": "Results\nThe results are stored in a dedicated directory on the [Storage Platform, e.g., Network Drive, S3 Bucket].\n\nPath: [Your_Root_Path]/workflow-output/[Run-ID]/\nExample Path: /project-data/workflow-output/20251127_0830/\n\n\nNote: The [Run-ID] is generated based on the date and time the workflow started."
+  },
+  {
+    "objectID": "outputs.html#important-files",
+    "href": "outputs.html#important-files",
+    "title": "Workflow Outputs",
+    "section": "Important files",
+    "text": "Important files\nDescribe which files the workflow user should focus on.\nThere are two primary files you need to review after every run.\n\n\n\n\n\n\n\n\nFile Name\nFormat\nPurpose\n\n\n\n\nfinal_data_report.csv\nCSV\nThe official, clean output. Contains all successfully processed records.\n\n\nrun_summary.json\nJSON\nThe status report. Contains key metrics like success rate and runtime."
+  },
+  {
+    "objectID": "outputs.html#how-to-interpret-the-files",
+    "href": "outputs.html#how-to-interpret-the-files",
+    "title": "Workflow Outputs",
+    "section": "How to Interpret the Files",
+    "text": "How to Interpret the Files\n\nA. Interpreting run_summary.json\nCheck these two values first to understand the overall run health:\n\n\n\n\n\n\n\n\nJSON Field\nMeaning\nInterpretation\n\n\n\n\nstatus\nSUCCESS or FAILURE\nMust be SUCCESS to trust the data.\n\n\nsuccess_rate_percent\nPercentage of records processed correctly.\nShould be 100.0%. If less, investigate the logs.\n\n\n\n\n\nB. Interpreting final_data_report.csv\nThe most critical column in the final report is the Validation_Status.\n\n\n\n\n\n\n\n\n\nColumn Name\nValue\nMeaning\nAction\n\n\n\n\nValidation_Status\nPASS\nThe record is clean and ready to use.\nGood to go!\n\n\nValidation_Status\nFLAGGED\nThe record failed a minor QC check.\nUse with caution, review manual log.\n\n\nValidation_Status\nFAIL\nThe record was critically rejected.\nDo not use. Contact the maintenance team."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Workflow Publishing Guide",
+    "section": "",
+    "text": "This is the first page a user of your workflow will see. Instruct the users how to find what they need.\nDescribe how the website is structured. Point new users to the Getting Started page."
+  },
+  {
+    "objectID": "index.html#creating-this-website",
+    "href": "index.html#creating-this-website",
+    "title": "Workflow Publishing Guide",
+    "section": "Creating this website",
+    "text": "Creating this website\nThis website was created using Quarto. The Pixi environment in this repository contains an environment to use Quarto.\npixi shell -e website\nIn the root of the workflow repo, a docs folder has been created to store any kind of documentation relating to the workflow. For example, the source of this website, a copy of the publication, maintainer notes, and so on.\nWithin the docs folder, we can then use Quarto to create the website source.\ncd docs\nquarto create project website docs-site-source\nThe rest is up to you to fill in. See the other pages for suggestions on what the included documentation could contain.\n\nAlternatives\nQuarto is a fairly easy way to create a static website for your workflow. However, there are quite a few alternatives such as Mkdocs that are also suitable."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This website serves as the definitive guide for understanding, implementing, and maintaining the [Your Workflow Name]. Our goal is to ensure [Core Benefit, e.g., smooth, error-free execution of the data pipeline] across all production environments.\n\n\n\nA summary of your workflow.\n\n\nInclude how to cite your work, and the license it’s under.\n\n\n\n\nThis documentation is structured to meet the needs of two primary audiences:\n\nWorkflow Operators (Primary Audience): Individuals responsible for triggering, monitoring, and validating the output.\n\nContent Focus: Step-by-step execution guides, operational checklists, and validation procedures.\n\nEngineers & Managers (Secondary Audience): Those who maintain the underlying code, require technical context, or need to assess project status.\n\nContent Focus: API references, architectural diagrams, and performance reports.\n\n\n\n\n\nThis documentation is maintained by the [Team Name/Owner]. We welcome contributions and feedback:\n\nQuestions & Support: Reach out to us via [Link to Github Discussions or Discord/Slack].\nFound a Error? Please submit an issue on our [Link to GitHub/GitLab Issues] page."
+  },
+  {
+    "objectID": "about.html#what-is-the-your-workflow-name",
+    "href": "about.html#what-is-the-your-workflow-name",
+    "title": "About",
+    "section": "",
+    "text": "A summary of your workflow.\n\n\nInclude how to cite your work, and the license it’s under."
+  },
+  {
+    "objectID": "about.html#who-should-use-this-documentation",
+    "href": "about.html#who-should-use-this-documentation",
+    "title": "About",
+    "section": "",
+    "text": "This documentation is structured to meet the needs of two primary audiences:\n\nWorkflow Operators (Primary Audience): Individuals responsible for triggering, monitoring, and validating the output.\n\nContent Focus: Step-by-step execution guides, operational checklists, and validation procedures.\n\nEngineers & Managers (Secondary Audience): Those who maintain the underlying code, require technical context, or need to assess project status.\n\nContent Focus: API references, architectural diagrams, and performance reports."
+  },
+  {
+    "objectID": "about.html#contact-and-contribution",
+    "href": "about.html#contact-and-contribution",
+    "title": "About",
+    "section": "",
+    "text": "This documentation is maintained by the [Team Name/Owner]. We welcome contributions and feedback:\n\nQuestions & Support: Reach out to us via [Link to Github Discussions or Discord/Slack].\nFound a Error? Please submit an issue on our [Link to GitHub/GitLab Issues] page."
+  }
+]

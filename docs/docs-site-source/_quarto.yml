@@ -1,0 +1,27 @@
+project:
+  type: website
+
+website:
+  title: "Workflow Publishing Guide"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - getting-started.qmd
+      - overview.qmd
+      - reference.qmd
+      - outputs.qmd
+      - troubleshooting.qmd
+      - about.qmd
+  repo-url: https://github.com/mahesh-panchal/Workflow-Publishing-Guide
+  repo-actions: [edit, issue]
+  repo-subdir: docs/docs-site-source/
+
+format:
+  html:
+    toc-depth: 2
+    number-depth: 2
+    theme: minty
+    mermaid:
+      theme: forest
+

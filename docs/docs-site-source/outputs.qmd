@@ -1,0 +1,47 @@
+---
+title: Workflow Outputs
+---
+
+Describe where to find the results, which files are important, and how to interpret them.
+If necessary, include case studies as subsections, or subpages.
+
+## Results
+
+The results are stored in a dedicated directory on the **[Storage Platform, e.g., Network Drive, S3 Bucket]**.
+
+* **Path:** `[Your_Root_Path]/workflow-output/[Run-ID]/`
+* **Example Path:** `/project-data/workflow-output/20251127_0830/`
+
+> **Note:** The `[Run-ID]` is generated based on the date and time the workflow started.
+
+## Important files
+
+Describe which files the workflow user should focus on.
+
+There are two primary files you need to review after every run.
+
+| File Name | Format | Purpose |
+| :--- | :--- | :--- |
+| **`final_data_report.csv`** | CSV | **The official, clean output.** Contains all successfully processed records. |
+| **`run_summary.json`** | JSON | **The status report.** Contains key metrics like success rate and runtime. |
+
+## How to Interpret the Files
+
+### A. Interpreting `run_summary.json`
+
+Check these two values first to understand the overall run health:
+
+| JSON Field | Meaning | Interpretation |
+| :--- | :--- | :--- |
+| `status` | **SUCCESS** or **FAILURE** | Must be **SUCCESS** to trust the data. |
+| `success_rate_percent` | Percentage of records processed correctly. | Should be **100.0%**. If less, investigate the logs. |
+
+### B. Interpreting `final_data_report.csv`
+
+The most critical column in the final report is the `Validation_Status`.
+
+| Column Name | Value | Meaning | Action |
+| :--- | :--- | :--- | :--- |
+| `Validation_Status` | **PASS** | The record is clean and ready to use. | **Good to go!** |
+| `Validation_Status` | **FLAGGED** | The record failed a minor QC check. | Use with caution, review manual log. |
+| `Validation_Status` | **FAIL** | The record was critically rejected. | **Do not use.** Contact the maintenance team. |

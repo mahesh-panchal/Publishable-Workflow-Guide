@@ -1,0 +1,19 @@
+---
+title: Overview
+---
+
+Give an overview of what your pipeline does.
+
+[Mermaid flowchart diagrams](https://mermaid.js.org/syntax/flowchart.html)
+are an excellent way to communicate what your workflow does.
+
+```{mermaid}
+flowchart LR
+    qc[Quality Control] ==> processing[Data processing]
+    processing ==> analysis[Analysis]
+    analysis ==> reports[Reporting]
+```
+
+If your workflow can be used in multiple ways, Metro maps, such as those
+[used across nf-core](https://nf-co.re/docs/guidelines/graphic_design/workflow_diagrams)
+are an effective way to communicate those paths.

@@ -1,0 +1,38 @@
+---
+title: Getting Started
+---
+
+Let the user know how to get started with the workflow. This should mirror the section in your README,
+or the README should point them here.
+
+### Prerequisites
+
+Define the software and hardware requirements needed to run the workflow.
+
+The workflow requires the following software:
+
+* **[Pixi](https://pixi.sh/latest/)**: Creates the environment for running the workflow.
+* **Git**: Version control
+* A container runtime: **Docker** (for local testing) or **Singularity/Apptainer** (recommended for HPC).
+
+Include expected resource usage on a typical dataset if possible, such as memory, CPU, runtime, and disk usage.
+
+This workflow can run on standard HPC nodes with at least 16 GB of RAM and 4 CPU cores. Typical runtime for a whole-exome sequencing sample pair is approximately 6-8 hours, depending on the dataset size and computational resources allocated.
+
+### How to run/install
+
+Supply a tiny dataset for testing purposes, along with example commands to run the workflow.
+
+**Nextflow Example:**
+```{.bash}
+# Open a Pixi shell to create an environment for running the workflow.
+pixi shell
+# Runs a small, defined test case using pre-configured containers.
+nextflow run main.nf -profile test,docker
+```
+
+**Snakemake Example:**
+```{.bash}
+# Runs with a minimal config file, leveraging Conda environments.
+snakemake --use-conda -j 4 --configfile config/test_config.yaml
+```

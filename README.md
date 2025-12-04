@@ -3,13 +3,15 @@
 *If you use an acronym for your workflow, define it here in a short sentence.*
 
 > [!NOTE]
-> This is a guide on how to publish a workflow.
+> This is a guide on how to publish a workflow. It can also serve as a template for creating a README.md file and website for your workflow repository.
 >
 > *Italics* sections are instructions for you to fill in with your specific information.
 > Plain text sections are templates for you to use directly.
 >
 > If you include a dedicated website for your workflow (highly recommended), ensure that this README provides a concise overview and clear directions to the full documentation.
 > Much of the content can then be moved to the website, keeping the README focused on essential information (Quick Start, Documentation Link, Community and Support, License and Citation), and avoiding duplication.
+>
+> Instructions to create the website can be found on the website here: [https://mahesh-panchal.github.io/Workflow-Publishing-Guide/](https://mahesh-panchal.github.io/Workflow-Publishing-Guide/). The source code for the website is under the `docs/docs-site-source/` folder in this repository.
 >
 > Further guidance:
 > * [SciLifeLab - Sharing code and workflows](https://data-guidelines.scilifelab.se/topics/sharing-code-workflows/)
